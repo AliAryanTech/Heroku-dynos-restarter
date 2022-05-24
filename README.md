@@ -1,45 +1,40 @@
 # Heroku dynos restarter
 
-אפליקציה לאתחול הדינו'ס של אפליקציית נוד כבדה על על הרקו, במקרה שהיא קרסה. נוצר עבור https://madrichim.ovh.
+An app for booting the dinos of a heavy roaming app on Al Harco, in case it crashes. Created for https://madrichim.ovh .
 
 # Config example
 
 In `config.env` file in root directory.
 ```
-TOKEN_API_HEROKU=fc0d678d-6b63-4b93-b7bc-19e5fbe8e3r9 #טוקן heroku
-APP_NAME=madrichim #שם האפליקציה בהרקו
-SITE_URL=https://madrichim.ovh #הכתובת שבה זמינה האפליקציה המנוטרת (אם יש רק דומיין חינמי של heroku ניתן להשאיר ריק)
-```
+TOKEN_API_HEROKU=fc0d678d-6b63-4b93-b7bc-19e5fbe8e3r9 # token heroku
+ APP_NAME = madrichim # The app name in Heroku 
+ SITE_URL = https: //madrichim.ovh # The address where the monitored app is available (if there is only a free heroku domain you can leave blank)```
 
 # Deploy in heroku
-יש ללחוץ על הכפתור 👇👇 ולמלא את הקונפיג.
+The button must be pressed👇👇And fill the config..
 <div  align='right'>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 </div>
 
-## מניעת "הירדמות" אוטומטית
-בתוכנית החינמית של heroku, [השרת נכבה מעצמו](https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping) אחרי 30 דקות ללא בקשה חיצונית לשרת.
-ניתן לעקוף זאת על ידי [אימות אשראי בחשבון ההרקו](https://devcenter.heroku.com/articles/account-verification), וכך מקבלים סה"כ 1000 שעות חינם בחודש, שמספיקות לפעילות רציפה של האפליקציה.
-לאחר מכן יש לשלוח "בקשת דמה" לאפליקציה כל פחות מ-30 דקות.
- ניתן לעשות זאת בקלות באמצעות אחד האתרים הבאים:
-* https://kaffeine.herokuapp.com
-* https://www.downnotifier.com
+## Automatic "sleep" prevention
+In heroku's free program, the server shuts down after 30 minutes without any external request to the server. This can be circumvented by verifying credit in the Harco account , thus getting a total of 1000 free hours per month, which is enough for continuous application of the app. Then a "dummy request" should be sent to the app every less than 30 minutes. This can be easily done through one of the following sites :
 
+https://kaffeine.herokuapp.com
+https://www.downnotifier.com
 
-## יצירת טוקן קבוע:
-קודם כל יש להתקין את heroku cli ([עבור Windows 64-bit](https://cli-assets.heroku.com/heroku-x64.exe))
+## Create a fixed token:
+First of all, install the heroku cli ([ for Windows 64-bit](https://cli-assets.heroku.com/heroku-x64.exe))
 
-ואז התחברות לחשבון בheroku:
-```
+Then login to heroku account:
+
 heroku login
-```
-ויצירת טוקן:
-```
+And token creation:
+
 heroku authorizations:create
-```
-## מראי מקומות
+
+## Places of sight
 * https://devcenter.heroku.com/articles/platform-api-reference#dyno-restart-all
 
 * https://devcenter.heroku.com/articles/platform-api-quickstart#authentication
